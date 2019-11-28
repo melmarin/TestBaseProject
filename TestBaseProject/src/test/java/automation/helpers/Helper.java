@@ -1,13 +1,17 @@
 package automation.helpers;
 
-public class Helper {
+import java.util.concurrent.TimeUnit;
 
-	public void sleepSeconds(int seconds) {
-		try {
-			Thread.sleep(seconds*1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+import org.openqa.selenium.WebDriver;
+
+public class Helper {
+	private WebDriver driver;
+
+	public Helper(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public void implicitlyWaitSeconds(int seconds) {
+		driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
 	}
 }

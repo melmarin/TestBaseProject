@@ -14,7 +14,6 @@ public class PageLogin {
 
 	public PageLogin(WebDriver driver) {
 		this.driver = driver;
-		this.helper = new Helper();
 		this.userInput = By.name("userName");
 		this.passwordInput = By.name("password");
 		this.loginButton = By.name("login");
@@ -24,6 +23,7 @@ public class PageLogin {
 		driver.findElement(userInput).sendKeys(user);
 		driver.findElement(passwordInput).sendKeys(pass);
 		driver.findElement(loginButton).click();
-		helper.sleepSeconds(5);
+		helper = new Helper(driver);
+		helper.implicitlyWaitSeconds(10);
 	}
 }

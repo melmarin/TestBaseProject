@@ -5,14 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
-import org.testng.annotations.*;
-
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import automation.helpers.Helper;
 import automation.pages.PageLogin;
+import automation.pages.PageReservation;
 
-public class TestLogin {
+public class TestReservation {
 	private WebDriver driver;
 	private Helper helper;
+	private PageReservation pageReservation;
 	private PageLogin pageLogin;
 	
 	@BeforeMethod
@@ -27,18 +30,16 @@ public class TestLogin {
 	}
 	
 	@Test
-	public void testLogOn() {
+	public void makeReservation() {
 		this.pageLogin = new PageLogin(driver);
 		pageLogin.login("mercury", "mercury");
+		helper.implicitlyWaitSeconds(10);
 		Assert.assertTrue(
 				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"));
-	}
-	
-	@Test
-	public void testLogOff() {
-		this.pageLogin = new PageLogin(driver);
-		pageLogin.login("user", "user");
-		Assert.assertTrue(driver.findElement(By.xpath("//b[contains(text(),'Welcome back to')]")).getText().contains("Welcome back to Mercury Tours!"));
+		this.pageReservation = new PageReservation(driver);
+		this.pageReservation.selectPassengersNum(2);
+		this.pageReservation.selectFromPort(3);
+		this.pageReservation.selectToPort("London");
 	}
 	
 	@AfterMethod
