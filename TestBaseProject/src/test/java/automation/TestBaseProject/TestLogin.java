@@ -7,9 +7,20 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import automation.helpers.Helper;
+import automation.pages.PageLogin;
+
 public class TestLogin {
 	private WebDriver driver;
+	private Helper helper;
+	private PageLogin pageLogin;
 	
+	
+
+	public TestLogin() {
+		this.helper = new Helper();
+	}
+
 	@BeforeMethod
 	public void setUp() {
 		DesiredCapabilities caps = new DesiredCapabilities();
@@ -17,25 +28,21 @@ public class TestLogin {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to("http://newtours.demoaut.com/");
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		helper.sleepSeconds(5);
 	}
+	
 	@Test
-	public void test() {
-		driver.findElement(By.name("userName")).sendKeys("user");
-		driver.findElement(By.name("password")).sendKeys("user");
-		driver.findElement(By.name("login")).click();
-		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void testLogOn() {
+		this.pageLogin = new PageLogin(driver);
+		pageLogin.login("mercury", "mercury");
+		Assert.assertTrue(
+				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"));
+	}
+	
+	@Test
+	public void testLogOff() {
+		this.pageLogin = new PageLogin(driver);
+		pageLogin.login("user", "user");
 		Assert.assertTrue(driver.findElement(By.xpath("//b[contains(text(),'Welcome back to')]")).getText().contains("Welcome back to Mercury Tours!"));
 	}
 	
