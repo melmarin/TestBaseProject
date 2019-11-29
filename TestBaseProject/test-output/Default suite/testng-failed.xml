@@ -6,10 +6,8 @@
       <class name="automation.TestBaseProject.TestLogin">
         <methods>
           <include name="testLogOnFields"/>
-          <include name="testLogOn"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="testLogOff"/>
         </methods>
       </class> <!-- automation.TestBaseProject.TestLogin -->
     </classes>

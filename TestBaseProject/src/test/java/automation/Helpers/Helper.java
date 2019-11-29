@@ -2,6 +2,7 @@ package automation.Helpers;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -20,14 +21,20 @@ public class Helper {
 	public void implicitlyWaitSeconds(int seconds) {
 		driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
 	}
-	
+
 	public void takeScreenShot() {
-		File myScreenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File myScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(myScreenshot, new File("Screenshots/LOGIN "+System.currentTimeMillis()+".png"));
+			FileUtils.copyFile(myScreenshot, new File("Screenshots/ERROR " + System.currentTimeMillis() + ".png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void openNewTab() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		String googleWindow = "window.open('http://www.google.com')";
+		jsExecutor.executeScript(googleWindow);
 	}
 }
