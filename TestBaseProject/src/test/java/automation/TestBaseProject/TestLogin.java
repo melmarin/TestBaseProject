@@ -1,14 +1,17 @@
 package automation.TestBaseProject;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import automation.helpers.Helper;
-import automation.pages.PageLogin;
+import automation.Helpers.Helper;
+import automation.Pages.PageLogin;
 
 public class TestLogin {
 	private WebDriver driver;
@@ -31,10 +34,19 @@ public class TestLogin {
 		this.pageLogin = new PageLogin(driver);
 		pageLogin.login("mercury", "mercury");
 		Assert.assertTrue(
-				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"));
+				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"), 
+				"Text different or not found");
+		helper.takeScreenShot();
 	}
 	
-	@Test
+	//@Test
+	public void testLogOnFields() {
+		this.pageLogin = new PageLogin(driver);
+		List<WebElement> inputList = pageLogin.loginByFields("mercury", "mercury");
+		Assert.assertTrue(inputList.size()==5);
+	}
+	
+	//@Test
 	public void testLogOff() {
 		this.pageLogin = new PageLogin(driver);
 		pageLogin.login("user", "user");

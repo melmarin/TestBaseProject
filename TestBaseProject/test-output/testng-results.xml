@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-11-28T17:17:18 CST" name="Default suite" finished-at="2019-11-28T17:17:35 CST" duration-ms="16341">
+  <suite started-at="2019-11-29T14:38:50 CST" name="Default suite" finished-at="2019-11-29T14:39:08 CST" duration-ms="17966">
     <groups>
     </groups>
-    <test started-at="2019-11-28T17:17:18 CST" name="Default test" finished-at="2019-11-28T17:17:35 CST" duration-ms="16341">
-      <class name="automation.TestBaseProject.TestReservation">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:automation.TestBaseProject.TestReservation@318ba8c8]" started-at="2019-11-28T17:17:18 CST" name="setUp" finished-at="2019-11-28T17:17:29 CST" duration-ms="10695" status="PASS">
+    <test started-at="2019-11-29T14:38:50 CST" name="Default test" finished-at="2019-11-29T14:39:08 CST" duration-ms="17966">
+      <class name="automation.TestBaseProject.TestLogin">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:automation.TestBaseProject.TestLogin@3c9d0b9d]" started-at="2019-11-29T14:38:50 CST" name="setUp" finished-at="2019-11-29T14:39:01 CST" duration-ms="11356" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="makeReservation()[pri:0, instance:automation.TestBaseProject.TestReservation@318ba8c8]" started-at="2019-11-28T17:17:29 CST" name="makeReservation" finished-at="2019-11-28T17:17:35 CST" duration-ms="5574" status="PASS">
+        <test-method signature="testLogOn()[pri:0, instance:automation.TestBaseProject.TestLogin@3c9d0b9d]" started-at="2019-11-29T14:39:01 CST" name="testLogOn" finished-at="2019-11-29T14:39:07 CST" duration-ms="6518" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- makeReservation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.TestBaseProject.TestReservation@318ba8c8]" started-at="2019-11-28T17:17:35 CST" name="tearDown" finished-at="2019-11-28T17:17:35 CST" duration-ms="46" status="PASS">
+        </test-method> <!-- testLogOn -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.TestBaseProject.TestLogin@3c9d0b9d]" started-at="2019-11-29T14:39:07 CST" name="tearDown" finished-at="2019-11-29T14:39:08 CST" duration-ms="59" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- automation.TestBaseProject.TestReservation -->
+      </class> <!-- automation.TestBaseProject.TestLogin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

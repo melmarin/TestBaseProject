@@ -8,9 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import automation.helpers.Helper;
-import automation.pages.PageLogin;
-import automation.pages.PageReservation;
+
+import automation.Helpers.Helper;
+import automation.Pages.PageLogin;
+import automation.Pages.PageReservation;
 
 public class TestReservation {
 	private WebDriver driver;
@@ -35,7 +36,7 @@ public class TestReservation {
 		pageLogin.login("mercury", "mercury");
 		helper.implicitlyWaitSeconds(10);
 		Assert.assertTrue(
-				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"));
+				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"), "Text not found or different");
 		this.pageReservation = new PageReservation(driver);
 		this.pageReservation.selectPassengersNum(2);
 		this.pageReservation.selectFromPort(3);

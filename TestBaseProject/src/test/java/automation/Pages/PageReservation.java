@@ -1,4 +1,6 @@
-package automation.pages;
+package automation.Pages;
+
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,9 +24,10 @@ public class PageReservation {
 	}
 	
 	public void selectPassengersNum(int num) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		WebElement passangers = wait.until(ExpectedConditions.presenceOfElementLocated(passengerDrop));
-		Select selectPassangers = new Select(driver.findElement(passengerDrop));
+		Duration fromSeconds = Duration.ofSeconds(10);
+		WebDriverWait wait = new WebDriverWait(driver, fromSeconds);
+		WebElement passengers = wait.until(ExpectedConditions.presenceOfElementLocated(passengerDrop));
+		Select selectPassangers = new Select(passengers);
 		selectPassangers.selectByVisibleText(Integer.toString(num));
 	}
 	

@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="automation.TestBaseProject.TestReservation">
+      <class name="automation.TestBaseProject.TestLogin">
         <methods>
+          <include name="testLogOnFields"/>
+          <include name="testLogOn"/>
           <include name="setUp"/>
-          <include name="makeReservation"/>
           <include name="tearDown"/>
+          <include name="testLogOff"/>
         </methods>
-      </class> <!-- automation.TestBaseProject.TestReservation -->
+      </class> <!-- automation.TestBaseProject.TestLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
