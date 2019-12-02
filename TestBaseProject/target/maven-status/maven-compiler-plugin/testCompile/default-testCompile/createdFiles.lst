@@ -1,1 +1,7 @@
+automation\AssertsTest\Employee.class
+automation\AssertsTest\AssertTest.class
+automation\Pages\PageReservation.class
+automation\Helpers\Helper.class
+automation\Pages\PageLogin.class
 automation\TestBaseProject\TestLogin.class
+automation\TestBaseProject\TestReservation.class

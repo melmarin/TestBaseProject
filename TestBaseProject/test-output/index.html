@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse-90822141\testng-customsuite.xml</span>
+                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse-562919181\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -113,6 +113,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="automation.TestBaseProject.TestLogin" class="method navigator-link" hash-for-method="testLogOnFields">testLogOnFields</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="automation.TestBaseProject.TestLogin" class="method navigator-link" hash-for-method="testTitle">testTitle</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -138,6 +143,8 @@
                   <a name="testLogOff">
                   </a> <!-- testLogOff -->
                   <span class="method-name">testLogOff</span>
+                  <em>
+(Login incorrect)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -145,6 +152,8 @@
                   <a name="testLogOn">
                   </a> <!-- testLogOn -->
                   <span class="method-name">testLogOn</span>
+                  <em>
+(Login correct)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -152,6 +161,17 @@
                   <a name="testLogOnFields">
                   </a> <!-- testLogOnFields -->
                   <span class="method-name">testLogOnFields</span>
+                  <em>
+(Login correct with list)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTitle">
+                  </a> <!-- testTitle -->
+                  <span class="method-name">testTitle</span>
+                  <em>
+(Write page tittle)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -159,7 +179,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse-90822141\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse-562919181\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -208,24 +228,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testLogOn')
 data.setCell(0, 2, 'automation.TestBaseProject.TestLogin')
-data.setCell(0, 3, 5414);
+data.setCell(0, 3, 20180);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testLogOnFields')
 data.setCell(1, 2, 'automation.TestBaseProject.TestLogin')
-data.setCell(1, 3, 5265);
+data.setCell(1, 3, 7449);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'testLogOff')
 data.setCell(2, 2, 'automation.TestBaseProject.TestLogin')
-data.setCell(2, 3, 2229);
+data.setCell(2, 3, 1532);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testTitle')
+data.setCell(3, 2, 'automation.TestBaseProject.TestLogin')
+data.setCell(3, 3, 1494);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 12 seconds</span>
+              <span class="suite-total-time">Total running time: 30 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -253,40 +277,52 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">automation.TestBaseProject.TestLogin</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setUp</span>
+                <span class="method-name">setUpWihoutGUI</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testLogOff</span>
-                <span class="method-start">11290 ms</span>
+                <span class="method-start">17794 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=testLogOff status=SUCCESS method=TestLogin.testLogOff()[pri:0, instance:automation....)</span>
-                <span class="method-start">13527 ms</span>
+                <span class="method-start">19326 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">13630 ms</span>
+                <span class="method-name">setUpWihoutGUI</span>
+                <span class="method-start">19355 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testLogOn</span>
-                <span class="method-start">24169 ms</span>
+                <span class="method-start">29563 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=testLogOn status=SUCCESS method=TestLogin.testLogOn()[pri:0, instance:automation.Te...)</span>
-                <span class="method-start">29588 ms</span>
+                <span class="method-start">49744 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">29621 ms</span>
+                <span class="method-name">setUpWihoutGUI</span>
+                <span class="method-start">49827 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testLogOnFields</span>
-                <span class="method-start">40016 ms</span>
+                <span class="method-start">60050 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=testLogOnFields status=SUCCESS method=TestLogin.testLogOnFields()[pri:0, instance:a...)</span>
-                <span class="method-start">45282 ms</span>
+                <span class="method-start">67501 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpWihoutGUI</span>
+                <span class="method-start">67536 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testTitle</span>
+                <span class="method-start">77738 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testTitle status=SUCCESS method=TestLogin.testTitle()[pri:0, instance:automation.Te...)</span>
+                <span class="method-start">79235 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

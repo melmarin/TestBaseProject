@@ -47,7 +47,7 @@ public class TestReservation {
 	@AfterMethod
 	public void tearDown(ITestResult result) {
 		if(!result.isSuccess()) {
-			helper.takeScreenShot();
+			helper.takeScreenShot("ERROR");
 		}
 		driver.close();
 	}
