@@ -3,53 +3,16 @@ package automation.TestBaseProject;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
-
-import automation.Helpers.Helper;
+import autoamtion.Config.SetUp;
 import automation.Pages.PageLogin;
 
-public class TestLogin {
-	private WebDriver driver;
-	private Helper helper;
+public class TestLogin extends SetUp{
+	//private Helper helper;
 	private PageLogin pageLogin;
 	
-	@BeforeMethod
-	public void setUp() {
-		//Detecting OS
-		String driverByOS = "";
-		if(System.getProperty("os.name").equals("windows 10")) {
-			driverByOS = "Drivers/chromedriver.exe";
-		}else {
-			driverByOS = "Drivers/chromedriver";
-		};
-		System.setProperty("webdriver.chrome.driver", driverByOS);
-		driver = new ChromeDriver();
-		
-		driver.manage().window().maximize();
-		//driver.manage().window().fullscreen();
-		//driver.manage().window().setSize(new Dimension(800, 600));
-		//driver.manage().window().setPosition(new Point(200, 300));
-		driver.navigate().to("http://newtours.demoaut.com/");
-		helper = new Helper(driver);
-		helper.implicitlyWaitSeconds(10);
-	}
-	
-	/*public void setUpWihoutGUI() {
-		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--headless");
-		driver = new ChromeDriver(chromeOptions);
-		driver.manage().window().maximize();
-		driver.navigate().to("http://newtours.demoaut.com/");
-		helper = new Helper(driver);
-		helper.implicitlyWaitSeconds(10);
-	}*/
 	@Test (description = "Login correct")
 	public void testLogOn() {
 		this.pageLogin = new PageLogin(driver);
@@ -82,14 +45,4 @@ public class TestLogin {
 		pageLogin.login(driver.getTitle(),"88");
 	}
 	
-	@AfterMethod
-	public void tearDown(ITestResult result) {
-		System.out.println("Test: "+ result.getMethod().getDescription()+ " is: " + result.getStatus());
-		if(!result.isSuccess()) {
-			helper.takeScreenShot("ERROR");
-		}
-		for(int i=0; i<=helper.getTabs().size()-1;i++) {
-			driver.switchTo().window(helper.getTabs().get(i)).close();
-		}
-	}
 }
