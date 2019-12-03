@@ -22,9 +22,15 @@ public class TestLogin {
 	private PageLogin pageLogin;
 	
 	@BeforeMethod
-	/*public void setUp() {
-		DesiredCapabilities caps = new DesiredCapabilities();
-		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+	public void setUp() {
+		//Detecting OS
+		String driverByOS = "";
+		if(System.getProperty("os.name").equals("windows 10")) {
+			driverByOS = "Drivers/chromedriver.exe";
+		}else {
+			driverByOS = "Drivers/chromedriver.exe";
+		};
+		System.setProperty("webdriver.chrome.driver", driverByOS);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		//driver.manage().window().fullscreen();
@@ -33,7 +39,7 @@ public class TestLogin {
 		driver.navigate().to("http://newtours.demoaut.com/");
 		helper = new Helper(driver);
 		helper.implicitlyWaitSeconds(10);
-	}*/
+	}
 	
 	public void setUpWihoutGUI() {
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
