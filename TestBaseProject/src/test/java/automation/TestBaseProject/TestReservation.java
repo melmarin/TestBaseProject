@@ -19,34 +19,41 @@ public class TestReservation {
 	private Helper helper;
 	private PageReservation pageReservation;
 	private PageLogin pageLogin;
-	
+
 	@BeforeMethod
 	public void setUp() {
-		DesiredCapabilities caps = new DesiredCapabilities();
-		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+		// Detecting OS
+		String driverByOS = "";
+		if (System.getProperty("os.name").equals("windows 10")) {
+			driverByOS = "Drivers/chromedriver.exe";
+		} else {
+			driverByOS = "Drivers/chromedriver";
+		}
+		System.setProperty("webdriver.chrome.driver", driverByOS);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to("http://newtours.demoaut.com/");
 		helper = new Helper(driver);
 		helper.implicitlyWaitSeconds(10);
 	}
-	
+
 	@Test
 	public void makeReservation() {
 		this.pageLogin = new PageLogin(driver);
 		pageLogin.login("mercury", "mercury");
 		helper.implicitlyWaitSeconds(10);
 		Assert.assertTrue(
-				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"), "Text not found or different");
+				driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]")).getText().contains("SIGN-OFF"),
+				"Text not found or different");
 		this.pageReservation = new PageReservation(driver);
 		this.pageReservation.selectPassengersNum(2);
 		this.pageReservation.selectFromPort(3);
 		this.pageReservation.selectToPort("London");
 	}
-	
+
 	@AfterMethod
 	public void tearDown(ITestResult result) {
-		if(!result.isSuccess()) {
+		if (!result.isSuccess()) {
 			helper.takeScreenShot("ERROR");
 		}
 		driver.close();

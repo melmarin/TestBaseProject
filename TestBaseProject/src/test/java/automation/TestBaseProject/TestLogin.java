@@ -3,12 +3,10 @@ package automation.TestBaseProject;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -28,10 +26,11 @@ public class TestLogin {
 		if(System.getProperty("os.name").equals("windows 10")) {
 			driverByOS = "Drivers/chromedriver.exe";
 		}else {
-			driverByOS = "Drivers/chromedriver.exe";
+			driverByOS = "Drivers/chromedriver";
 		};
 		System.setProperty("webdriver.chrome.driver", driverByOS);
 		driver = new ChromeDriver();
+		
 		driver.manage().window().maximize();
 		//driver.manage().window().fullscreen();
 		//driver.manage().window().setSize(new Dimension(800, 600));
@@ -41,7 +40,7 @@ public class TestLogin {
 		helper.implicitlyWaitSeconds(10);
 	}
 	
-	public void setUpWihoutGUI() {
+	/*public void setUpWihoutGUI() {
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments("--headless");
@@ -50,8 +49,7 @@ public class TestLogin {
 		driver.navigate().to("http://newtours.demoaut.com/");
 		helper = new Helper(driver);
 		helper.implicitlyWaitSeconds(10);
-	}
-	
+	}*/
 	@Test (description = "Login correct")
 	public void testLogOn() {
 		this.pageLogin = new PageLogin(driver);
